@@ -2,12 +2,12 @@
 	<rawname>soundlang</rawname>
 	<repo>standard</repo>
 	<name>Sound Languages</name>
-	<version>17.0.4</version>
+	<version>17.0.4.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
-		*17.0.4* Packaging of ver 17.0.4
+		*17.0.4.1* Packaging of ver 17.0.4.1
 		*17.0.2* Packaging of ver 17.0.2
 		*17.0.1alpha* 17.0.1 alpha release
 	</changelog>
@@ -15,7 +15,7 @@
 	<description>
 		Management of sound prompt languages.
 	</description>
-  	<more-info>https://wiki.freepbx.org/display/FPG/Sound+Languages</more-info>
+  	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/20611603/Sound+Languages</more-info>
 	<depends>
 		<version>17.0.1</version>
 	</depends>
