@@ -1545,9 +1545,19 @@ class Soundlang extends \FreePBX_Helpers implements \BMO {
 			}
 			$message = rtrim(trim($message),",");
 
-			throw new \Exception($message,$code);
+			if (!file_exists('/var/run/asterisk/restore_running.lock')) {
+				throw new \Exception($message,$code);
+			} else {
+				// Restore is running so just putting message to the log instead of throwing the error
+				$this->logger->error( sprintf("%s->%s - %s", $this->module_name, __FUNCTION__, $message));
+			}
 		} else {
-			throw new \Exception(sprintf(_("Unknown Error. Response was empty from %s"),json_encode($mirrors['mirrors'], JSON_THROW_ON_ERROR)),0);
+			if (!file_exists('/var/run/asterisk/restore_running.lock')) {
+				throw new \Exception(sprintf(_("Unknown Error. Response was empty from %s"),json_encode($mirrors['mirrors'], JSON_THROW_ON_ERROR)),0);
+			} else {
+				// Restore is running so just putting message to the log instead of throwing the error
+				$this->logger->error(sprintf(_("Unknown Error. Response was empty from %s"),json_encode($mirrors['mirrors'], JSON_THROW_ON_ERROR)),0); 
+			}
 		}
 	}
 }
